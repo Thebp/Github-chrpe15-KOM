@@ -39,7 +39,7 @@ public class PlayerControlSystem implements IEntityProcessingService, IGamePlugi
             }
             
             //shooting
-            if(gameData.getKeys().isDown(GameKeys.SPACE)){
+            if(gameData.getKeys().isPressed(GameKeys.SPACE)){
                 gameData.addEvent(new Event(PLAYER_SHOOT, player.getID()));
             }
             
