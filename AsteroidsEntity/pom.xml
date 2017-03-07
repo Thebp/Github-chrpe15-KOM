@@ -22,5 +22,6 @@
         <module>Asteroid</module>
         <module>Bullet</module>
         <module>Enemy</module>
+        <module>CollisionDetection</module>
     </modules>
 </project>

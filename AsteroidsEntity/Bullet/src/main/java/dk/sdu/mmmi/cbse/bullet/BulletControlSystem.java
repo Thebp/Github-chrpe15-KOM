@@ -39,7 +39,7 @@ public class BulletControlSystem implements IEntityProcessingService, IGamePlugi
                             bullet.setY(entity.getY() + (float) Math.sin(entity.getRadians() * (entity.getRadius() + bullet.getRadius() + 1)));
                             bullet.setDx(entity.getDx());
                             bullet.setDy(entity.getDy());
-                            bullet.setAcceleration(1000);
+                            bullet.setAcceleration(10000);
                             bullet.setDeacceleration(0);
                             bullet.setMaxSpeed(400);
                             bullet.setExpiration(2.5f);
@@ -90,17 +90,17 @@ public class BulletControlSystem implements IEntityProcessingService, IGamePlugi
             x += dx * dt;
             y += dy * dt;
 
-            shapeX[0] = (float) (bullet.getX() + Math.cos(radians + Math.PI * 1) * 5);
-            shapeY[0] = (float) (bullet.getY() + Math.sin(radians + Math.PI * 1) * 5);
+            shapeX[0] = (float) (bullet.getX() + Math.cos(radians + Math.PI * 1) * bullet.getRadius());
+            shapeY[0] = (float) (bullet.getY() + Math.sin(radians + Math.PI * 1) * bullet.getRadius());
 
-            shapeX[1] = (float) (bullet.getX() + Math.cos(radians + Math.PI * 1.25) * 5);
-            shapeY[1] = (float) (bullet.getY() + Math.sin(radians + Math.PI * 1.25) * 5);
+            shapeX[1] = (float) (bullet.getX() + Math.cos(radians + Math.PI * 2) * bullet.getRadius());
+            shapeY[1] = (float) (bullet.getY() + Math.sin(radians + Math.PI * 2) * bullet.getRadius());
 
-            shapeX[2] = (float) (bullet.getX() + Math.cos(radians + Math.PI * 1.5) * 5);
-            shapeY[2] = (float) (bullet.getY() + Math.sin(radians + Math.PI * 1.5) * 5);
+            shapeX[2] = (float) (bullet.getX() + Math.cos(radians + Math.PI * 3) * bullet.getRadius());
+            shapeY[2] = (float) (bullet.getY() + Math.sin(radians + Math.PI * 3) * bullet.getRadius());
 
-            shapeX[3] = (float) (bullet.getX() + Math.cos(radians + Math.PI * 1.75) * 5);
-            shapeY[3] = (float) (bullet.getY() + Math.sin(radians + Math.PI * 1.75) * 5);
+            shapeX[3] = (float) (bullet.getX() + Math.cos(radians + Math.PI * 4) * bullet.getRadius());
+            shapeY[3] = (float) (bullet.getY() + Math.sin(radians + Math.PI * 4) * bullet.getRadius());
 
             bullet.setX(x);
             bullet.setY(y);

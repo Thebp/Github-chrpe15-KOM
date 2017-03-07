@@ -66,17 +66,17 @@ public class PlayerControlSystem implements IEntityProcessingService, IGamePlugi
             x += dx * dt;
             y += dy * dt;
 
-            shapeX[0] = (float) (x + Math.cos(radians) * 8);
-            shapeY[0] = (float) (y + Math.sin(radians) * 8);
+            shapeX[0] = (float) (x + Math.cos(radians) * player.getRadius());
+            shapeY[0] = (float) (y + Math.sin(radians) * player.getRadius());
 
-            shapeX[1] = (float) (x + Math.cos(radians - 4 * 3.1415f / 5) * 8);
-            shapeY[1] = (float) (y + Math.sin(radians - 4 * 3.1145f / 5) * 8);
+            shapeX[1] = (float) (x + Math.cos(radians - 4 * 3.1415f / 5) * player.getRadius());
+            shapeY[1] = (float) (y + Math.sin(radians - 4 * 3.1145f / 5) * player.getRadius());
 
-            shapeX[2] = (float) (x + Math.cos(radians + 3.1415f) * 5);
-            shapeY[2] = (float) (y + Math.sin(radians + 3.1415f) * 5);
+            shapeX[2] = (float) (x + Math.cos(radians + 3.1415f) * player.getRadius() * 0.625);
+            shapeY[2] = (float) (y + Math.sin(radians + 3.1415f) * player.getRadius() * 0.625);
 
-            shapeX[3] = (float) (x + Math.cos(radians + 4 * 3.1415f / 5) * 8);
-            shapeY[3] = (float) (y + Math.sin(radians + 4 * 3.1415f / 5) * 8);
+            shapeX[3] = (float) (x + Math.cos(radians + 4 * 3.1415f / 5) * player.getRadius());
+            shapeY[3] = (float) (y + Math.sin(radians + 4 * 3.1415f / 5) * player.getRadius());
 
             player.setX(x);
             player.setY(y);
@@ -89,6 +89,7 @@ public class PlayerControlSystem implements IEntityProcessingService, IGamePlugi
             player.setMaxSpeed(maxSpeed);
             player.setShapeX(shapeX);
             player.setShapeY(shapeY);
+            
         }
     }
 

@@ -31,6 +31,7 @@ public class EntityPlugin implements IGamePluginService {
         playerShip.setMaxSpeed(300);
         playerShip.setAcceleration(200);
         playerShip.setDeacceleration(10);
+        playerShip.setRadius(8);
 
         playerShip.setRadians(3.1415f / 2);
         playerShip.setRotationSpeed(3);
