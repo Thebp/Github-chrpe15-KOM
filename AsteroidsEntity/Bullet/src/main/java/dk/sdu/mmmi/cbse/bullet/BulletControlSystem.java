@@ -8,16 +8,15 @@ package dk.sdu.mmmi.cbse.bullet;
 import dk.sdu.mmmi.cbse.common.data.Entity;
 import dk.sdu.mmmi.cbse.common.data.EntityType;
 import static dk.sdu.mmmi.cbse.common.data.EntityType.BULLET;
+import static dk.sdu.mmmi.cbse.common.data.EntityType.ENEMY;
 import static dk.sdu.mmmi.cbse.common.data.EntityType.PLAYER;
 import dk.sdu.mmmi.cbse.common.data.GameData;
 import dk.sdu.mmmi.cbse.common.data.World;
 import dk.sdu.mmmi.cbse.common.events.Event;
-import dk.sdu.mmmi.cbse.common.events.EventType;
 import static dk.sdu.mmmi.cbse.common.events.EventType.ENEMY_SHOOT;
 import static dk.sdu.mmmi.cbse.common.events.EventType.PLAYER_SHOOT;
 import dk.sdu.mmmi.cbse.common.services.IEntityProcessingService;
 import dk.sdu.mmmi.cbse.common.services.IGamePluginService;
-import java.util.Random;
 
 /**
  *
@@ -29,7 +28,7 @@ public class BulletControlSystem implements IEntityProcessingService, IGamePlugi
     public void process(GameData gameData, World world) {
         if (!gameData.getEvents().isEmpty()) {
             for (Event event : gameData.getEvents()) {
-                if (event.getType() == PLAYER_SHOOT) {
+                if (event.getType() == PLAYER_SHOOT){
                     for (Entity entity : world.getEntities(PLAYER)) {
                         if (entity.getID().equals(event.getEntityID())) {
                             Entity bullet = new Entity();
@@ -44,6 +43,25 @@ public class BulletControlSystem implements IEntityProcessingService, IGamePlugi
                             bullet.setMaxSpeed(400);
                             bullet.setExpiration(2.5f);
                             bullet.setRadians(entity.getRadians());
+                            world.addEntity(bullet);
+                            gameData.removeEvent(event);
+                        }
+                    }
+                }else if(event.getType() == ENEMY_SHOOT){
+                    for(Entity enemy : world.getEntities(ENEMY)){
+                        if(enemy.getID().equals(event.getEntityID())){
+                            Entity bullet = new Entity();
+                            bullet.setType(BULLET);
+                            bullet.setRadius(4);
+                            bullet.setX(enemy.getX() + (float) Math.cos(enemy.getRadians()) * (enemy.getRadius() + bullet.getRadius() + 1));
+                            bullet.setY(enemy.getY() + (float) Math.sin(enemy.getRadians()) * (enemy.getRadius() + bullet.getRadius() + 1));
+                            bullet.setDx(enemy.getDx());
+                            bullet.setDy(enemy.getDy());
+                            bullet.setAcceleration(10000);
+                            bullet.setDeacceleration(0);
+                            bullet.setMaxSpeed(400);
+                            bullet.setExpiration(2.5f);
+                            bullet.setRadians(enemy.getRadians());
                             world.addEntity(bullet);
                             gameData.removeEvent(event);
                         }

@@ -45,7 +45,6 @@ public class PlayerControlSystem implements IEntityProcessingService, IGamePlugi
             
             if(player.getIsHit() == true){
                 world.removeEntity(player);
-                System.out.println("HIT");
                 player.setIsHit(false);
             }
             

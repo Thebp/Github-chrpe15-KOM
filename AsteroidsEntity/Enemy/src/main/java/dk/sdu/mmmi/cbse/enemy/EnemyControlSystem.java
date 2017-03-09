@@ -10,6 +10,8 @@ import dk.sdu.mmmi.cbse.common.data.EntityType;
 import dk.sdu.mmmi.cbse.common.data.GameData;
 import dk.sdu.mmmi.cbse.common.data.GameKeys;
 import dk.sdu.mmmi.cbse.common.data.World;
+import dk.sdu.mmmi.cbse.common.events.Event;
+import static dk.sdu.mmmi.cbse.common.events.EventType.ENEMY_SHOOT;
 import dk.sdu.mmmi.cbse.common.services.IEntityProcessingService;
 import dk.sdu.mmmi.cbse.common.services.IGamePluginService;
 import java.util.Random;
@@ -36,6 +38,7 @@ public class EnemyControlSystem implements IEntityProcessingService, IGamePlugin
             float[] shapeX = enemy.getShapeX();
             float[] shapeY = enemy.getShapeY();
             Random rand = new Random();
+            Random rand2 = new Random();
             boolean up = true;
             
             if (rand.nextBoolean() == true) {
@@ -43,11 +46,19 @@ public class EnemyControlSystem implements IEntityProcessingService, IGamePlugin
             } else if (rand.nextBoolean() == false) {
                 radians -= rotationSpeed * dt;
             }
-
+            //shooting
+            if(rand2.nextInt(10000) < 20){
+                gameData.addEvent(new Event(ENEMY_SHOOT, enemy.getID()));
+            }
             // accelerating
             if (up = true) {
                 dx += Math.cos(radians) * acceleration * dt;
                 dy += Math.sin(radians) * acceleration * dt;
+            }
+            //collision
+            if(enemy.getIsHit() == true){
+                world.removeEntity(enemy);
+                enemy.setIsHit(false);
             }
 
             // deceleration
@@ -66,17 +77,17 @@ public class EnemyControlSystem implements IEntityProcessingService, IGamePlugin
             y += dy * dt;
 
             
-            shapeX[0] = (float) (x + Math.cos(radians) * 8);
-            shapeY[0] = (float) (y + Math.sin(radians) * 8);
+            shapeX[0] = (float) (x + Math.cos(radians) * enemy.getRadius());
+            shapeY[0] = (float) (y + Math.sin(radians) * enemy.getRadius());
 
-            shapeX[1] = (float) (x + Math.cos(radians - 4 * 3.1415f / 5) * 8);
-            shapeY[1] = (float) (y + Math.sin(radians - 4 * 3.1145f / 5) * 8);
+            shapeX[1] = (float) (x + Math.cos(radians - 4 * 3.1415f / 5) * enemy.getRadius());
+            shapeY[1] = (float) (y + Math.sin(radians - 4 * 3.1145f / 5) * enemy.getRadius());
 
-            shapeX[2] = (float) (x + Math.cos(radians + 3.1415f) * 5);
-            shapeY[2] = (float) (y + Math.sin(radians + 3.1415f) * 5);
+            shapeX[2] = (float) (x + Math.cos(radians + 3.1415f) * enemy.getRadius());
+            shapeY[2] = (float) (y + Math.sin(radians + 3.1415f) * enemy.getRadius());
 
-            shapeX[3] = (float) (x + Math.cos(radians + 4 * 3.1415f / 5) * 8);
-            shapeY[3] = (float) (y + Math.sin(radians + 4 * 3.1415f / 5) * 8);
+            shapeX[3] = (float) (x + Math.cos(radians + 4 * 3.1415f / 5) * enemy.getRadius());
+            shapeY[3] = (float) (y + Math.sin(radians + 4 * 3.1415f / 5) * enemy.getRadius());
 
             enemy.setX(x);
             enemy.setY(y);

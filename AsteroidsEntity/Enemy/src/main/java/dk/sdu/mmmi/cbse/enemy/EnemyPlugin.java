@@ -10,7 +10,6 @@ import static dk.sdu.mmmi.cbse.common.data.EntityType.ENEMY;
 import dk.sdu.mmmi.cbse.common.data.GameData;
 import dk.sdu.mmmi.cbse.common.data.World;
 import dk.sdu.mmmi.cbse.common.services.IGamePluginService;
-import java.util.Random;
 
 /**
  *
@@ -18,7 +17,6 @@ import java.util.Random;
  */
 public class EnemyPlugin implements IGamePluginService{
     private Entity enemy;
-    private Random rand;
     public EnemyPlugin(){
         
     }
@@ -32,6 +30,7 @@ public class EnemyPlugin implements IGamePluginService{
         enemyShip.setMaxSpeed(200);
         enemyShip.setAcceleration(100);
         enemyShip.setDeacceleration(10);
+        enemyShip.setRadius(8);
         
         enemyShip.setRadians(3.1415f /1);
         enemyShip.setRotationSpeed(3);
