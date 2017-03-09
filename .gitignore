@@ -51,3 +51,4 @@ Temporary Items
 /AsteroidsEntity/Core/target/
 /AsteroidsEntity/Enemy/target/
 /AsteroidsEntity/Player/target/
+/AsteroidsEntity/CollisionDetection/target/

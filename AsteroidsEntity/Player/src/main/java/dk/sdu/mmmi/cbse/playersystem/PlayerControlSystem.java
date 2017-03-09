@@ -43,7 +43,11 @@ public class PlayerControlSystem implements IEntityProcessingService, IGamePlugi
                 gameData.addEvent(new Event(PLAYER_SHOOT, player.getID()));
             }
             
-            
+            if(player.getIsHit() == true){
+                world.removeEntity(player);
+                System.out.println("HIT");
+                player.setIsHit(false);
+            }
             
             // accelerating
             if (gameData.getKeys().isDown(GameKeys.UP)) {

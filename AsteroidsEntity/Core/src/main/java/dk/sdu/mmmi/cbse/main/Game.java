@@ -8,6 +8,7 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import dk.sdu.mmmi.cbse.asteroid.AsteroidControlSystem;
 import dk.sdu.mmmi.cbse.asteroid.AsteroidPlugin;
 import dk.sdu.mmmi.cbse.bullet.BulletControlSystem;
+import dk.sdu.mmmi.cbse.collisiondetection.CollisionControlSystem;
 import dk.sdu.mmmi.cbse.common.data.Entity;
 import dk.sdu.mmmi.cbse.common.data.GameData;
 import dk.sdu.mmmi.cbse.common.data.World;
@@ -36,6 +37,7 @@ public class Game implements ApplicationListener {
     private IEntityProcessingService asteroidProcessor;
     private IGamePluginService asteroidPlugin;
     private IEntityProcessingService bulletProcessor;
+    private IEntityProcessingService collisionProcessor;
 
     @Override
     public void create() {
@@ -69,6 +71,7 @@ public class Game implements ApplicationListener {
         asteroidProcessor = new AsteroidControlSystem();
         
         bulletProcessor = new BulletControlSystem();
+        collisionProcessor = new CollisionControlSystem();
     }
 
     @Override
@@ -95,6 +98,7 @@ public class Game implements ApplicationListener {
         enemyProcessor.process(gameData, world);
         asteroidProcessor.process(gameData, world);
         bulletProcessor.process(gameData, world);
+        collisionProcessor.process(gameData, world);
     }
     
 

@@ -27,11 +27,12 @@ public class AsteroidPlugin implements IGamePluginService {
         Entity asteroids = new Entity();
         asteroids.setType(EntityType.ASTEROIDS);
         
-        asteroids.setPosition(gameData.getDisplayWidth() / 2, gameData.getDisplayHeight() / 2);
+        asteroids.setPosition(gameData.getDisplayWidth() / 1, gameData.getDisplayHeight() / 1);
         
         asteroids.setMaxSpeed(150);
         asteroids.setAcceleration(75);
         asteroids.setDeacceleration(5);
+        asteroids.setRadius(32);
 
         asteroids.setRadians(3.1415f / 2);
         asteroids.setRotationSpeed(3);

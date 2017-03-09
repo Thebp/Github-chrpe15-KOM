@@ -35,8 +35,8 @@ public class BulletControlSystem implements IEntityProcessingService, IGamePlugi
                             Entity bullet = new Entity();
                             bullet.setType(BULLET);
                             bullet.setRadius(4);
-                            bullet.setX(entity.getX() + (float) Math.cos(entity.getRadians() * (entity.getRadius() + bullet.getRadius() + 1)));
-                            bullet.setY(entity.getY() + (float) Math.sin(entity.getRadians() * (entity.getRadius() + bullet.getRadius() + 1)));
+                            bullet.setX(entity.getX() + (float) Math.cos(entity.getRadians()) * (entity.getRadius() + bullet.getRadius() + 1));
+                            bullet.setY(entity.getY() + (float) Math.sin(entity.getRadians()) * (entity.getRadius() + bullet.getRadius() + 1));
                             bullet.setDx(entity.getDx());
                             bullet.setDy(entity.getDy());
                             bullet.setAcceleration(10000);
@@ -54,6 +54,10 @@ public class BulletControlSystem implements IEntityProcessingService, IGamePlugi
         for (Entity bullet : world.getEntities(EntityType.BULLET)) {
             if(bullet.getExpiration() < 0){
                 world.removeEntity(bullet);
+            }
+            if(bullet.getIsHit() == true){
+                world.removeEntity(bullet);
+                bullet.setIsHit(false);
             }
             float x = bullet.getX();
             float y = bullet.getY();
