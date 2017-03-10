@@ -109,83 +109,24 @@ public class AsteroidControlSystem implements IEntityProcessingService, IGamePlu
 
             for (Event event : gameData.getEvents()) {
                 if (event.getType() == ASTEROID_SPLIT) {
-                    Entity asteroid2 = new Entity();
-                    float x2 = asteroid2.getX();
-                    float y2 = asteroid2.getY();
-                    float dx2 = asteroid2.getDx();
-                    float dy2 = asteroid2.getDy();
-                    float[] shapeX2 = asteroid2.getShapeX();
-                    float[] shapeY2 = asteroid2.getShapeY();
-                    asteroid2.setRadius(asteroid.getRadius()/2);
+                    Entity asteroids = new Entity();
+                    asteroids.setType(EntityType.ASTEROIDS);
+                    event.getEntityID();
+                    asteroids.setPosition( , );
+
+                    asteroids.setMaxSpeed(150);
+                    asteroids.setAcceleration(75);
+                    asteroids.setDeacceleration(5);
+                    if(asteroids.getRadius() == 32){
+                        asteroids.setRadius(16);
+                    }else if(asteroids.getRadius() == 16){
+                        asteroids.setRadius(8);
+                    }
+
+                    asteroids.setRadians(3.1415f / 2);
+                    asteroids.setRotationSpeed(3);
+                    world.addEntity(asteroids);
                     
-                    Random rand2 = new Random();
-
-                    if (rand2.nextBoolean() == true) {
-                        radians += rotationSpeed * dt;
-                    } else if (rand2.nextBoolean() == false) {
-                        radians -= rotationSpeed * dt;
-                    }
-
-                    if (asteroid.getIsHit() == true) {
-                        gameData.addEvent(new Event(ASTEROID_SPLIT, asteroid.getID()));
-                    }
-
-                    // accelerating
-                    if (up == true) {
-                        dx += Math.cos(radians) * acceleration * dt;
-                        dy += Math.sin(radians) * acceleration * dt;
-                    }
-
-                    // deceleration
-                    float vec2 = (float) Math.sqrt(dx2 * dx2 + dy2 * dy2);
-                    if (vec2 > 0) {
-                        dx2 -= (dx2 / vec2) * deceleration * dt;
-                        dy2 -= (dy2 / vec2) * deceleration * dt;
-                    }
-                    if (vec2 > maxSpeed) {
-                        dx2 = (dx / vec2) * maxSpeed;
-                        dy2 = (dy / vec2) * maxSpeed;
-                    }
-
-                    // set position
-                    x2 += dx2 * dt;
-                    y2 += dy2 * dt;
-
-                    shapeX2[0] = (float) (asteroid.getX() + Math.cos(radians + Math.PI * 1) * asteroid.getRadius());
-                    shapeY2[0] = (float) (asteroid.getY() + Math.sin(radians + Math.PI * 1) * asteroid.getRadius());
-
-                    shapeX2[1] = (float) (asteroid.getX() + Math.cos(radians + Math.PI * 1.25) * asteroid.getRadius());
-                    shapeY2[1] = (float) (asteroid.getY() + Math.sin(radians + Math.PI * 1.25) * asteroid.getRadius());
-
-                    shapeX2[2] = (float) (asteroid.getX() + Math.cos(radians + Math.PI * 1.5) * asteroid.getRadius());
-                    shapeY2[2] = (float) (asteroid.getY() + Math.sin(radians + Math.PI * 1.5) * asteroid.getRadius());
-
-                    shapeX2[3] = (float) (asteroid.getX() + Math.cos(radians + Math.PI * 1.75) * asteroid.getRadius());
-                    shapeY2[3] = (float) (asteroid.getY() + Math.sin(radians + Math.PI * 1.75) * asteroid.getRadius());
-
-                    shapeX2[4] = (float) (asteroid.getX() + Math.cos(radians + Math.PI * 2) * asteroid.getRadius());
-                    shapeY2[4] = (float) (asteroid.getY() + Math.sin(radians + Math.PI * 2) * asteroid.getRadius());
-
-                    shapeX2[5] = (float) (asteroid.getX() + Math.cos(radians + Math.PI * 2.25) * asteroid.getRadius());
-                    shapeY2[5] = (float) (asteroid.getY() + Math.sin(radians + Math.PI * 2.25) * asteroid.getRadius());
-
-                    shapeX2[6] = (float) (asteroid.getX() + Math.cos(radians + Math.PI * 2.5) * asteroid.getRadius());
-                    shapeY2[6] = (float) (asteroid.getY() + Math.sin(radians + Math.PI * 2.5) * asteroid.getRadius());
-
-                    shapeX2[7] = (float) (asteroid.getX() + Math.cos(radians + Math.PI * 2.75) * asteroid.getRadius());
-                    shapeY2[7] = (float) (asteroid.getY() + Math.sin(radians + Math.PI * 2.75) * asteroid.getRadius());
-
-                    asteroid.setX(x2);
-                    asteroid.setY(y2);
-                    asteroid.setDx(dx2);
-                    asteroid.setDy(dy2);
-                    asteroid.setRadians(radians);
-                    asteroid.setRotationSpeed(rotationSpeed);
-                    asteroid.setAcceleration(acceleration);
-                    asteroid.setDeacceleration(deceleration);
-                    asteroid.setMaxSpeed(maxSpeed);
-                    asteroid.setShapeX(shapeX2);
-                    asteroid.setShapeY(shapeY2);
                 }
             }
         }
