@@ -111,8 +111,11 @@ public class AsteroidControlSystem implements IEntityProcessingService, IGamePlu
                 if (event.getType() == ASTEROID_SPLIT) {
                     Entity asteroids = new Entity();
                     asteroids.setType(EntityType.ASTEROIDS);
-                    event.getEntityID();
-                    asteroids.setPosition( , );
+                    if(event.getEntityID().equals(asteroid.getID())){
+                         asteroids.setPosition(asteroid.getX() + 10 , asteroid.getY() + 10);
+                    }
+                    
+                   
 
                     asteroids.setMaxSpeed(150);
                     asteroids.setAcceleration(75);
@@ -122,10 +125,12 @@ public class AsteroidControlSystem implements IEntityProcessingService, IGamePlu
                     }else if(asteroids.getRadius() == 16){
                         asteroids.setRadius(8);
                     }
-
+                    asteroids.setShapeX(new float[8]);
+                    asteroids.setShapeY(new float[8]);
                     asteroids.setRadians(3.1415f / 2);
                     asteroids.setRotationSpeed(3);
                     world.addEntity(asteroids);
+                    world.removeEntity(asteroid);
                     
                 }
             }
