@@ -52,3 +52,15 @@ Temporary Items
 /AsteroidsEntity/Enemy/target/
 /AsteroidsEntity/Player/target/
 /AsteroidsEntity/CollisionDetection/target/
+/AsteroidsEntity - Kopi/Asteroid/target/
+/AsteroidsEntity - Kopi/Bullet/target/
+/AsteroidsEntity - Kopi/CollisionDetection/target/
+/AsteroidsEntity - Kopi/Common/target/
+/AsteroidsEntity - Kopi/Core/target/
+/AsteroidsServiceloader/Asteroid/target/
+/AsteroidsServiceloader/Bullet/target/
+/AsteroidsServiceloader/CollisionDetection/target/
+/AsteroidsServiceloader/Common/target/
+/AsteroidsServiceloader/Core/target/
+/AsteroidsServiceloader/Enemy/target/
+/AsteroidsServiceloader/Player/target/
