@@ -21,6 +21,7 @@ import dk.sdu.mmmi.cbse.playersystem.EntityPlugin;
 import dk.sdu.mmmi.cbse.playersystem.PlayerControlSystem;
 import java.util.ArrayList;
 import java.util.List;
+import dk.sdu.mmmi.cbse.common.util.SPILocator;
 
 public class Game implements ApplicationListener {
 
@@ -30,18 +31,20 @@ public class Game implements ApplicationListener {
     private final GameData gameData = new GameData();
     private List<IEntityProcessingService> entityProcessors = new ArrayList<>();
     private World world = new World();
-    private IGamePluginService playerPlugin;
-    private IEntityProcessingService playerProcessor;
-    private IGamePluginService enemyPlugin;
-    private IEntityProcessingService enemyProcessor;
-    private IEntityProcessingService asteroidProcessor;
-    private IGamePluginService asteroidPlugin;
-    private IEntityProcessingService bulletProcessor;
-    private IEntityProcessingService collisionProcessor;
-
+//    private IGamePluginService playerPlugin;
+//    private IEntityProcessingService playerProcessor;
+//    private IGamePluginService enemyPlugin;
+//    private IEntityProcessingService enemyProcessor;
+//    private IEntityProcessingService asteroidProcessor;
+//    private IGamePluginService asteroidPlugin;
+//    private IEntityProcessingService bulletProcessor;
+//    private IEntityProcessingService collisionProcessor;
+//    private SPILocator serviceLoader;
+    
     @Override
     public void create() {
-
+        
+        
         gameData.setDisplayWidth(Gdx.graphics.getWidth());
         gameData.setDisplayHeight(Gdx.graphics.getHeight());
 
@@ -54,24 +57,15 @@ public class Game implements ApplicationListener {
         Gdx.input.setInputProcessor(
                 new GameInputProcessor(gameData)
         );
+        
+        for(IGamePluginService e : SPILocator.locateAll(IGamePluginService.class)){
+            e.start(gameData, world);
+        }
+        
+        //entityProcessors = SPILocator.locateAll(IEntityProcessingService.class);
 
-        playerPlugin = new EntityPlugin();
-        playerPlugin.start(gameData, world);
-
-        playerProcessor = new PlayerControlSystem();
        
-        enemyPlugin = new EnemyPlugin();
-        enemyPlugin.start(gameData, world);
-       
-        enemyProcessor = new EnemyControlSystem();
         
-        asteroidPlugin = new AsteroidPlugin();
-        asteroidPlugin.start(gameData, world);
-        
-        asteroidProcessor = new AsteroidControlSystem();
-        
-        bulletProcessor = new BulletControlSystem();
-        collisionProcessor = new CollisionControlSystem();
     }
 
     @Override
@@ -94,11 +88,14 @@ public class Game implements ApplicationListener {
 
     private void update() {
         // Update
-        playerProcessor.process(gameData, world);
-        enemyProcessor.process(gameData, world);
-        asteroidProcessor.process(gameData, world);
-        bulletProcessor.process(gameData, world);
-        collisionProcessor.process(gameData, world);
+        for(IEntityProcessingService e : SPILocator.locateAll(IEntityProcessingService.class)){
+            e.process(gameData, world);
+        }
+//        playerProcessor.process(gameData, world);
+//        enemyProcessor.process(gameData, world);
+//        asteroidProcessor.process(gameData, world);
+//        bulletProcessor.process(gameData, world);
+//        collisionProcessor.process(gameData, world);
     }
     
 
