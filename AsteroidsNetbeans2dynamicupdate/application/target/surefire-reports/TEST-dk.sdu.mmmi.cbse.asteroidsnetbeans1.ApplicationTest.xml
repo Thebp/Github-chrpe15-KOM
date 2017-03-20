@@ -15,7 +15,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.os.patch.level" value=""/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="user.dir" value="C:\Users\Christian\Documents\NetBeansProjects\Github\AsteroidsNetbeans1"/>
+    <property name="user.dir" value="C:\Users\Christian\Documents\NetBeansProjects\Github\AsteroidsNetbeans2dynamicupdate"/>
     <property name="java.runtime.version" value="1.8.0_72-b15"/>
     <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
     <property name="java.endorsed.dirs" value="C:\Program Files\Java\jdk1.8.0_72\jre\lib\endorsed"/>

@@ -65,6 +65,7 @@
         <module>Enemy</module>
         <module>Bullet</module>
         <module>Asteroid</module>
+        <module>SilentUpdate</module>
     </modules>
 
     <properties>
