@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<module codename="dk.sdu.mmmi.cbse.Player">
+    <module_version install_time="1493039865559" last="true" origin="Sample Update Center" specification_version="1.0.0">
+        <file crc="477641821" name="config/Modules/dk-sdu-mmmi-cbse-Player.xml"/>
+        <file crc="3823203796" name="modules/dk-sdu-mmmi-cbse-Player.jar"/>
+    </module_version>
+</module>
