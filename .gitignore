@@ -1,3 +1,5 @@
+*.class
+
 # Windows image file caches
 Thumbs.db
 ehthumbs.db
@@ -16,6 +18,12 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+
+# Package Files #
+*.jar
+*.war
+*.ear
+*.nbm
 
 # =========================
 # Operating System Files
