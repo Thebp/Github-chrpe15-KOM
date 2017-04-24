@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><module codename="org.netbeans.api.progress/1">
-    <module_version install_time="1490042799827" last="true" origin="installer" specification_version="1.46.1">
+    <module_version install_time="1493039825117" last="true" origin="installer" specification_version="1.46.1">
         <file crc="1135744155" name="config/ModuleAutoDeps/org-netbeans-api-progress.xml"/>
         <file crc="1605883752" name="config/Modules/org-netbeans-api-progress.xml"/>
         <file crc="3667523188" name="modules/locale/org-netbeans-api-progress_ja.jar"/>

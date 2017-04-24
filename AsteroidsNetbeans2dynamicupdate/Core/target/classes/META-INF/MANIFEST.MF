@@ -3,8 +3,8 @@ OpenIDE-Module-Install: dk/sdu/mmmi/cbse/core/main/Installer.class
 OpenIDE-Module-Localizing-Bundle: dk/sdu/mmmi/cbse/core/Bundle.propert
  ies
 OpenIDE-Module-Specification-Version: 1.0.0
-OpenIDE-Module-Implementation-Version: 1.0.0-20170320
-OpenIDE-Module-Build-Version: 201703202046
+OpenIDE-Module-Implementation-Version: 1.0.0-20170424
+OpenIDE-Module-Build-Version: 201704241317
 OpenIDE-Module: dk.sdu.mmmi.cbse.Core
 OpenIDE-Module-Public-Packages: -
 OpenIDE-Module-Requires: org.openide.modules.ModuleFormat1
