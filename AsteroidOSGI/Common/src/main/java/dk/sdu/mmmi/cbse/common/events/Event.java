@@ -1,5 +1,6 @@
 package dk.sdu.mmmi.cbse.common.events;
 
+import dk.sdu.mmmi.cbse.common.data.Entity;
 import java.io.Serializable;
 
 /**
@@ -7,19 +8,13 @@ import java.io.Serializable;
  * @author Mads
  */
 public class Event implements Serializable{
-    private final EventType type;
-    private final String entityID;
-    
-    public Event(EventType type, String entityID){
-        this.type = type;
-        this.entityID = entityID;
-    }
-        
-    public EventType getType(){
-        return type;
+    private final Entity source;
+
+    public Event(Entity source) {
+        this.source = source;
     }
 
-    public String getEntityID() {
-        return entityID;
-    }     
+    public Entity getSource() {
+        return source;
+    }
 }

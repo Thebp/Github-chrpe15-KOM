@@ -1,28 +1,28 @@
 package dk.sdu.mmmi.cbse.player.playersystem;
 
 import dk.sdu.mmmi.cbse.common.data.Entity;
-import dk.sdu.mmmi.cbse.common.data.EntityType;
 import dk.sdu.mmmi.cbse.common.data.GameData;
 import dk.sdu.mmmi.cbse.common.data.GameKeys;
 import dk.sdu.mmmi.cbse.common.data.World;
-import dk.sdu.mmmi.cbse.common.events.Event;
-import static dk.sdu.mmmi.cbse.common.events.EventType.PLAYER_SHOOT;
 import dk.sdu.mmmi.cbse.common.services.IEntityProcessingService;
 import dk.sdu.mmmi.cbse.common.services.IGamePluginService;
+import dk.sdu.mmmi.cbse.commonbullet.BulletSPI;
+import org.openide.util.Lookup;
 import org.openide.util.lookup.ServiceProvider;
 import org.openide.util.lookup.ServiceProviders;
+
 /**
  *
  * @author jcs
  */
-@ServiceProviders(value ={
+@ServiceProviders(value = {
     @ServiceProvider(service = IEntityProcessingService.class)
 })
 public class PlayerControlSystem implements IEntityProcessingService, IGamePluginService {
 
     @Override
     public void process(GameData gameData, World world) {
-        for (Entity player : world.getEntities(EntityType.PLAYER)) {
+        for (Entity player : world.getEntities(Player.class)) {
             float x = player.getX();
             float y = player.getY();
             float dx = player.getDx();
@@ -41,17 +41,18 @@ public class PlayerControlSystem implements IEntityProcessingService, IGamePlugi
             } else if (gameData.getKeys().isDown(GameKeys.RIGHT)) {
                 radians -= rotationSpeed * dt;
             }
-            
+
+            BulletSPI bulletSPI = Lookup.getDefault().lookup(BulletSPI.class);
             //shooting
-            if(gameData.getKeys().isPressed(GameKeys.SPACE)){
-                gameData.addEvent(new Event(PLAYER_SHOOT, player.getID()));
+            if (gameData.getKeys().isPressed(GameKeys.SPACE)) {
+                bulletSPI.createBullet(player);
             }
-            
-            if(player.getIsHit() == true){
+
+            if (player.getIsHit() == true) {
                 world.removeEntity(player);
                 player.setIsHit(false);
             }
-            
+
             // accelerating
             if (gameData.getKeys().isDown(GameKeys.UP)) {
                 dx += Math.cos(radians) * acceleration * dt;
@@ -96,7 +97,7 @@ public class PlayerControlSystem implements IEntityProcessingService, IGamePlugi
             player.setMaxSpeed(maxSpeed);
             player.setShapeX(shapeX);
             player.setShapeY(shapeY);
-            
+
         }
     }
 

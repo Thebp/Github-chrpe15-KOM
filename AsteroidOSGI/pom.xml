@@ -65,6 +65,8 @@
         <module>Enemy</module>
         <module>Bullet</module>
         <module>Asteroid</module>
+        <module>CommonAsteroid</module>
+        <module>CommonBullet</module>
     </modules>
 
     <properties>

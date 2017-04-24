@@ -1,7 +1,6 @@
 package dk.sdu.mmmi.cbse.player.playersystem;
 
 import dk.sdu.mmmi.cbse.common.data.Entity;
-import static dk.sdu.mmmi.cbse.common.data.EntityType.PLAYER;
 import dk.sdu.mmmi.cbse.common.data.GameData;
 import dk.sdu.mmmi.cbse.common.data.World;
 import dk.sdu.mmmi.cbse.common.services.IGamePluginService;
@@ -26,7 +25,6 @@ public class EntityPlugin implements IGamePluginService {
     private Entity createPlayerShip(GameData gameData) {
 
         Entity playerShip = new Entity();
-        playerShip.setType(PLAYER);
 
         playerShip.setPosition(gameData.getDisplayWidth() / 2, gameData.getDisplayHeight() / 2);
 

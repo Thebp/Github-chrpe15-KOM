@@ -6,7 +6,6 @@
 package dk.sdu.mmmi.cbse.enemy;
 
 import dk.sdu.mmmi.cbse.common.data.Entity;
-import static dk.sdu.mmmi.cbse.common.data.EntityType.ENEMY;
 import dk.sdu.mmmi.cbse.common.data.GameData;
 import dk.sdu.mmmi.cbse.common.data.World;
 import dk.sdu.mmmi.cbse.common.services.IGamePluginService;
@@ -25,8 +24,7 @@ public class EnemyPlugin implements IGamePluginService{
     
     private Entity createEnemyShip(GameData gameData){
         Entity enemyShip = new Entity();
-        enemyShip.setType(ENEMY);
-        
+                
         enemyShip.setPosition(gameData.getDisplayWidth()/4, gameData.getDisplayHeight()/4);
         
         enemyShip.setMaxSpeed(200);

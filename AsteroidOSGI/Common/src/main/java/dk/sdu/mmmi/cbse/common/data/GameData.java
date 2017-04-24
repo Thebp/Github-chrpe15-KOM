@@ -1,7 +1,6 @@
 package dk.sdu.mmmi.cbse.common.data;
 
 import dk.sdu.mmmi.cbse.common.events.Event;
-import dk.sdu.mmmi.cbse.common.events.EventType;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
@@ -26,11 +25,11 @@ public class GameData {
         return events;
     }
 
-    public List<Event> getEvents(EventType eventType, String id) {
+    public <E extends Event> List<Event> getEvents(Class<E> eventType, String id) {
         List<Event> r = new ArrayList<>();
 
         for (Event event : events) {
-            if (event.getType().equals(eventType) && event.getEntityID().equals(id)) {
+            if (event.getClass().equals(eventType) && event.getSource().getID().equals(id)) {
                 r.add(event);
             }
         }

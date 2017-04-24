@@ -6,15 +6,16 @@
 package dk.sdu.mmmi.cbse.asteroid;
 
 import dk.sdu.mmmi.cbse.common.data.Entity;
-import dk.sdu.mmmi.cbse.common.data.EntityType;
 import dk.sdu.mmmi.cbse.common.data.GameData;
 import dk.sdu.mmmi.cbse.common.data.GameKeys;
 import dk.sdu.mmmi.cbse.common.data.World;
 import dk.sdu.mmmi.cbse.common.events.Event;
-import static dk.sdu.mmmi.cbse.common.events.EventType.ASTEROID_SPLIT;
 import dk.sdu.mmmi.cbse.common.services.IEntityProcessingService;
 import dk.sdu.mmmi.cbse.common.services.IGamePluginService;
+import dk.sdu.mmmi.cbse.commonasteroid.Asteroid;
+import dk.sdu.mmmi.cbse.commonasteroid.AsteroidSPI;
 import java.util.Random;
+import org.openide.util.Lookup;
 import org.openide.util.lookup.ServiceProvider;
 
 /**
@@ -22,11 +23,11 @@ import org.openide.util.lookup.ServiceProvider;
  * @author Christian
  */
 @ServiceProvider(service = IEntityProcessingService.class)
-public class AsteroidControlSystem implements IEntityProcessingService, IGamePluginService {
+public class AsteroidControlSystem implements IEntityProcessingService {
 
     @Override
     public void process(GameData gameData, World world) {
-        for (Entity asteroid : world.getEntities(EntityType.ASTEROIDS)) {
+        for (Entity asteroid : world.getEntities(Asteroid.class)) {
             float x = asteroid.getX();
             float y = asteroid.getY();
             float dx = asteroid.getDx();
@@ -48,8 +49,9 @@ public class AsteroidControlSystem implements IEntityProcessingService, IGamePlu
                 radians -= rotationSpeed * dt;
             }
 
+            AsteroidSPI asteroidProvider = Lookup.getDefault().lookup(AsteroidSPI.class);
             if (asteroid.getIsHit() == true) {
-                gameData.addEvent(new Event(ASTEROID_SPLIT, asteroid.getID()));
+                asteroidProvider.createAsteroidSplit(asteroid);
             }
 
             // accelerating
@@ -109,45 +111,7 @@ public class AsteroidControlSystem implements IEntityProcessingService, IGamePlu
             asteroid.setShapeX(shapeX);
             asteroid.setShapeY(shapeY);
 
-            for (Event event : gameData.getEvents()) {
-                if (event.getType() == ASTEROID_SPLIT) {
-                    Entity asteroids = new Entity();
-                    asteroids.setType(EntityType.ASTEROIDS);
-                    if(event.getEntityID().equals(asteroid.getID())){
-                         asteroids.setPosition(asteroid.getX() + 10 , asteroid.getY() + 10);
-                    }
-                    
-                   
-
-                    asteroids.setMaxSpeed(150);
-                    asteroids.setAcceleration(75);
-                    asteroids.setDeacceleration(5);
-                    if(asteroids.getRadius() == 32){
-                        asteroids.setRadius(16);
-                    }else if(asteroids.getRadius() == 16){
-                        asteroids.setRadius(8);
-                    }
-                    asteroids.setShapeX(new float[8]);
-                    asteroids.setShapeY(new float[8]);
-                    asteroids.setRadians(3.1415f / 2);
-                    asteroids.setRotationSpeed(3);
-                    world.addEntity(asteroids);
-                    world.removeEntity(asteroid);
-                    
-                }
-            }
         }
 
     }
-
-    @Override
-    public void start(GameData gameData, World world) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void stop(GameData gameData, World world) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
 }

@@ -6,10 +6,10 @@
 package dk.sdu.mmmi.cbse.bullet;
 
 import dk.sdu.mmmi.cbse.common.data.Entity;
-import static dk.sdu.mmmi.cbse.common.data.EntityType.BULLET;
 import dk.sdu.mmmi.cbse.common.data.GameData;
 import dk.sdu.mmmi.cbse.common.data.World;
 import dk.sdu.mmmi.cbse.common.services.IGamePluginService;
+import dk.sdu.mmmi.cbse.commonbullet.Bullet;
 import org.openide.util.lookup.ServiceProvider;
 
 /**
@@ -18,34 +18,16 @@ import org.openide.util.lookup.ServiceProvider;
  */
 @ServiceProvider(service = IGamePluginService.class)
 public class BulletPlugin implements IGamePluginService{
-    private Entity bullet;
-    @Override
+   @Override
     public void start(GameData gameData, World world) {
-        // Add entities to the world
-        bullet = createBullet(gameData);
-        world.addEntity(bullet);
+        System.out.println("Bullet plugin started");
     }
 
     @Override
     public void stop(GameData gameData, World world) {
-         // Remove entities
-        world.removeEntity(bullet);
-    }
-
-    private Entity createBullet(GameData gameData) {
-       Entity bullets = new Entity();
-        bullets.setType(BULLET);
-
-        bullets.setPosition(gameData.getDisplayWidth() / 2, gameData.getDisplayHeight() / 2);
-
-        bullets.setMaxSpeed(300);
-        bullets.setAcceleration(200);
-        bullets.setDeacceleration(10);
-
-        bullets.setRadians(3.1415f / 2);
-        //bullets.setRotationSpeed(3);
-
-        return bullets;
+        for(Entity bullet : world.getEntities(Bullet.class)) {
+            world.removeEntity(bullet);
+        }
     }
     
 }

@@ -6,7 +6,6 @@
 package dk.sdu.mmmi.cbse.asteroid;
 
 import dk.sdu.mmmi.cbse.common.data.Entity;
-import dk.sdu.mmmi.cbse.common.data.EntityType;
 import dk.sdu.mmmi.cbse.common.data.GameData;
 import dk.sdu.mmmi.cbse.common.data.World;
 import dk.sdu.mmmi.cbse.common.services.IGamePluginService;
@@ -27,7 +26,7 @@ public class AsteroidPlugin implements IGamePluginService {
     private Entity createAsteroid(GameData gameData){
         
         Entity asteroids = new Entity();
-        asteroids.setType(EntityType.ASTEROIDS);
+//        asteroids.setType(EntityType.ASTEROIDS);
         
         asteroids.setPosition(gameData.getDisplayWidth() / 1, gameData.getDisplayHeight() / 1);
         
@@ -46,9 +45,7 @@ public class AsteroidPlugin implements IGamePluginService {
     @Override
     public void start(GameData gameData, World world) {
         asteroid = createAsteroid(gameData);
-        //asteroid2 = createAsteroid(gameData);
         world.addEntity(asteroid);
-        //world.addEntity(asteroid2);
         asteroid.setShapeX(new float[8]);
         asteroid.setShapeY(new float[8]);
        

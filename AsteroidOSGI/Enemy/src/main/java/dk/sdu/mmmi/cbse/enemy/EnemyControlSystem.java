@@ -6,15 +6,15 @@
 package dk.sdu.mmmi.cbse.enemy;
 
 import dk.sdu.mmmi.cbse.common.data.Entity;
-import dk.sdu.mmmi.cbse.common.data.EntityType;
 import dk.sdu.mmmi.cbse.common.data.GameData;
 import dk.sdu.mmmi.cbse.common.data.GameKeys;
 import dk.sdu.mmmi.cbse.common.data.World;
 import dk.sdu.mmmi.cbse.common.events.Event;
-import static dk.sdu.mmmi.cbse.common.events.EventType.ENEMY_SHOOT;
 import dk.sdu.mmmi.cbse.common.services.IEntityProcessingService;
 import dk.sdu.mmmi.cbse.common.services.IGamePluginService;
+import dk.sdu.mmmi.cbse.commonbullet.BulletSPI;
 import java.util.Random;
+import org.openide.util.Lookup;
 import org.openide.util.lookup.ServiceProvider;
 
 /**
@@ -22,11 +22,11 @@ import org.openide.util.lookup.ServiceProvider;
  * @author Christian
  */
 @ServiceProvider(service = IEntityProcessingService.class)
-public class EnemyControlSystem implements IEntityProcessingService, IGamePluginService {
+public class EnemyControlSystem implements IEntityProcessingService{
 
     @Override
     public void process(GameData gameData, World world) {
-        for (Entity enemy : world.getEntities(EntityType.ENEMY)) {
+        for (Entity enemy : world.getEntities(Enemy.class)) {
             float x = enemy.getX();
             float y = enemy.getY();
             float dx = enemy.getDx();
@@ -49,8 +49,9 @@ public class EnemyControlSystem implements IEntityProcessingService, IGamePlugin
                 radians -= rotationSpeed * dt;
             }
             //shooting
+            BulletSPI bulletSPI = Lookup.getDefault().lookup(BulletSPI.class);
             if(rand2.nextInt(10000) < 20){
-                gameData.addEvent(new Event(ENEMY_SHOOT, enemy.getID()));
+                bulletSPI.createBullet(enemy);
             }
             // accelerating
             if (up = true) {
@@ -105,14 +106,6 @@ public class EnemyControlSystem implements IEntityProcessingService, IGamePlugin
         }
     }
 
-    @Override
-    public void start(GameData gameData, World world) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void stop(GameData gameData, World world) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
     
 }
