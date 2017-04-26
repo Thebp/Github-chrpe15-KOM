@@ -5,24 +5,22 @@ import dk.sdu.mmmi.cbse.common.data.GameData;
 import dk.sdu.mmmi.cbse.common.data.GameKeys;
 import dk.sdu.mmmi.cbse.common.data.World;
 import dk.sdu.mmmi.cbse.common.services.IEntityProcessingService;
-import dk.sdu.mmmi.cbse.common.services.IGamePluginService;
 import dk.sdu.mmmi.cbse.commonbullet.BulletSPI;
 import org.openide.util.Lookup;
 import org.openide.util.lookup.ServiceProvider;
-import org.openide.util.lookup.ServiceProviders;
 
 /**
  *
  * @author jcs
  */
-@ServiceProviders(value = {
-    @ServiceProvider(service = IEntityProcessingService.class)
-})
-public class PlayerControlSystem implements IEntityProcessingService, IGamePluginService {
+@ServiceProvider(service = IEntityProcessingService.class)
+
+public class PlayerControlSystem implements IEntityProcessingService {
 
     @Override
     public void process(GameData gameData, World world) {
         for (Entity player : world.getEntities(Player.class)) {
+            System.out.println("Test af testssssssssssssssssssssss");
             float x = player.getX();
             float y = player.getY();
             float dx = player.getDx();
@@ -97,18 +95,10 @@ public class PlayerControlSystem implements IEntityProcessingService, IGamePlugi
             player.setMaxSpeed(maxSpeed);
             player.setShapeX(shapeX);
             player.setShapeY(shapeY);
-
+            
         }
     }
 
-    @Override
-    public void start(GameData gameData, World world) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void stop(GameData gameData, World world) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+  
 
 }

@@ -52,11 +52,6 @@
         -->
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>Player</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>${project.groupId}</groupId>
             <artifactId>Core</artifactId>
             <version>${project.version}</version>
         </dependency>
@@ -73,6 +68,21 @@
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>Asteroid</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>CommonBullet</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>CommonAsteroid</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>Player</artifactId>
             <version>${project.version}</version>
         </dependency>
     </dependencies>

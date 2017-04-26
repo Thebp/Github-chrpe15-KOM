@@ -14,7 +14,10 @@ import dk.sdu.mmmi.cbse.core.managers.GameInputProcessor;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 import org.openide.util.Lookup;
+import org.openide.util.LookupEvent;
+import org.openide.util.LookupListener;
 
 public class Game implements ApplicationListener {
 
@@ -24,6 +27,8 @@ public class Game implements ApplicationListener {
     private final GameData gameData = new GameData();
     private List<IEntityProcessingService> entityProcessors = new ArrayList<>();
     private World world = new World();
+    private List<IGamePluginService> gamePlugins = new CopyOnWriteArrayList<>();
+    private Lookup.Result<IGamePluginService> result;
    
 
     @Override
@@ -41,9 +46,17 @@ public class Game implements ApplicationListener {
         Gdx.input.setInputProcessor(
                 new GameInputProcessor(gameData)
         );
-        
-        for(IGamePluginService gamePlugin : getGamePluginService()){
-            gamePlugin.start(gameData, world);
+//        
+//        for(IGamePluginService gamePlugin : getGamePluginService()){
+//            gamePlugin.start(gameData, world);
+//        }
+        result = lookup.lookupResult(IGamePluginService.class);
+        result.addLookupListener(lookupListener);
+        result.allItems();
+
+        for (IGamePluginService plugin : result.allInstances()) {
+            plugin.start(gameData, world);
+            gamePlugins.add(plugin);
         }
         
     }
@@ -129,4 +142,27 @@ public class Game implements ApplicationListener {
     private Collection<? extends IGamePluginService> getGamePluginService(){
         return lookup.lookupAll(IGamePluginService.class);
     }
+    private final LookupListener lookupListener = new LookupListener() {
+        @Override
+        public void resultChanged(LookupEvent le) {
+
+            Collection<? extends IGamePluginService> updated = result.allInstances();
+
+            for (IGamePluginService us : updated) {
+                // Newly installed modules
+                if (!gamePlugins.contains(us)) {
+                    us.start(gameData, world);
+                    gamePlugins.add(us);
+                }
+            }
+
+            // Stop and remove module
+            for (IGamePluginService gs : gamePlugins) {
+                if (!updated.contains(gs)) {
+                    gs.stop(gameData, world);
+                    gamePlugins.remove(gs);
+                }
+            }
+        }
+    };
 }
