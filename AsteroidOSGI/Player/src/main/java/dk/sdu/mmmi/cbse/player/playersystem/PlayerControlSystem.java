@@ -20,7 +20,6 @@ public class PlayerControlSystem implements IEntityProcessingService {
     @Override
     public void process(GameData gameData, World world) {
         for (Entity player : world.getEntities(Player.class)) {
-            System.out.println("Test af testssssssssssssssssssssss");
             float x = player.getX();
             float y = player.getY();
             float dx = player.getDx();
@@ -42,8 +41,9 @@ public class PlayerControlSystem implements IEntityProcessingService {
 
             BulletSPI bulletSPI = Lookup.getDefault().lookup(BulletSPI.class);
             //shooting
-            if (gameData.getKeys().isPressed(GameKeys.SPACE)) {
-                bulletSPI.createBullet(player);
+            if (gameData.getKeys().isPressed(GameKeys.SPACE) && bulletSPI != null) {
+                Entity bullet = bulletSPI.createBullet(player);
+                world.addEntity(bullet);
             }
 
             if (player.getIsHit() == true) {

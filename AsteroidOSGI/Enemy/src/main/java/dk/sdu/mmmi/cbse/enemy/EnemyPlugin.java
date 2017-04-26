@@ -23,7 +23,7 @@ public class EnemyPlugin implements IGamePluginService{
     }
     
     private Entity createEnemyShip(GameData gameData){
-        Entity enemyShip = new Entity();
+        Enemy enemyShip = new Enemy();
                 
         enemyShip.setPosition(gameData.getDisplayWidth()/4, gameData.getDisplayHeight()/4);
         

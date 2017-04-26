@@ -50,7 +50,7 @@ public class EnemyControlSystem implements IEntityProcessingService{
             }
             //shooting
             BulletSPI bulletSPI = Lookup.getDefault().lookup(BulletSPI.class);
-            if(rand2.nextInt(10000) < 20){
+            if(rand2.nextInt(10000) < 20 && bulletSPI != null){
                 bulletSPI.createBullet(enemy);
             }
             // accelerating

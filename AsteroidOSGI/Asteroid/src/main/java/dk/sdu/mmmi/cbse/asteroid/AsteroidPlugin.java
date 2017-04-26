@@ -9,6 +9,7 @@ import dk.sdu.mmmi.cbse.common.data.Entity;
 import dk.sdu.mmmi.cbse.common.data.GameData;
 import dk.sdu.mmmi.cbse.common.data.World;
 import dk.sdu.mmmi.cbse.common.services.IGamePluginService;
+import dk.sdu.mmmi.cbse.commonasteroid.Asteroid;
 import org.openide.util.lookup.ServiceProvider;
 
 /**
@@ -25,7 +26,7 @@ public class AsteroidPlugin implements IGamePluginService {
     
     private Entity createAsteroid(GameData gameData){
         
-        Entity asteroids = new Entity();
+        Asteroid asteroids = new Asteroid();
 //        asteroids.setType(EntityType.ASTEROIDS);
         
         asteroids.setPosition(gameData.getDisplayWidth() / 1, gameData.getDisplayHeight() / 1);

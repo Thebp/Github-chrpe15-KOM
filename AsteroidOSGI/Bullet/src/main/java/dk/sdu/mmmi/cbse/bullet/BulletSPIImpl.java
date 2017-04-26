@@ -8,11 +8,13 @@ package dk.sdu.mmmi.cbse.bullet;
 import dk.sdu.mmmi.cbse.common.data.Entity;
 import dk.sdu.mmmi.cbse.commonbullet.Bullet;
 import dk.sdu.mmmi.cbse.commonbullet.BulletSPI;
+import org.openide.util.lookup.ServiceProvider;
 
 /**
  *
  * @author Christian
  */
+@ServiceProvider(service = BulletSPI.class)
 public class BulletSPIImpl implements BulletSPI{
 
     @Override
@@ -33,7 +35,6 @@ public class BulletSPIImpl implements BulletSPI{
         bullet.setRotationSpeed(0);
         bullet.setShapeX(new float[4]);
         bullet.setShapeY(new float[4]);
-        //bullet.setDynamic(true);
         
         return bullet;
     }
