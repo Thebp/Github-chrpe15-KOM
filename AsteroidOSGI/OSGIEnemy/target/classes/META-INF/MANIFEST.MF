@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1493482819373
+Build-Jdk: 1.8.0_72
+Built-By: Christian
+Bundle-Activator: dk.sdu.mmmi.cbse.osgienemy.Activator
+Bundle-ManifestVersion: 2
+Bundle-Name: OSGIEnemy OSGi Bundle
+Bundle-SymbolicName: dk.sdu.mmmi.cbse.OSGIEnemy
+Bundle-Version: 1.0.0.SNAPSHOT
+Created-By: Apache Maven Bundle Plugin
+Import-Package: dk.sdu.mmmi.cbse.common.data,dk.sdu.mmmi.cbse.common.ser
+ vices,org.osgi.framework;version="[1.6,2)"
+Tool: Bnd-1.50.0

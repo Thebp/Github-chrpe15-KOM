@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>dk.sdu.mmmi.cbse</groupId>
@@ -62,12 +61,12 @@
         <module>Common</module>
         <module>Core</module>
         <module>Player</module>
-        <module>Enemy</module>
         <module>Bullet</module>
-        <module>Asteroid</module>
-        <module>CommonAsteroid</module>
         <module>CommonBullet</module>
-    </modules>
+        <module>OSGIExtender</module>
+    <module>OSGIEnemy</module>
+    <module>OSGIAsteroid</module>
+  </modules>
 
     <properties>
         <netbeans.version>RELEASE81</netbeans.version>

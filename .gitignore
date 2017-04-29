@@ -91,3 +91,5 @@ Temporary Items
 /AsteroidOSGI/application/target/
 /AsteroidOSGI/CommonBullet/target/
 /AsteroidOSGI/CommonAsteroid/target/
+/AsteroidOSGI/OSGIExtender/target/
+/AsteroidOSGI/OSGIAsteroid/target/
