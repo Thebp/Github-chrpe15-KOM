@@ -35,7 +35,6 @@ public class BulletSPIImpl implements BulletSPI{
         bullet.setRotationSpeed(0);
         bullet.setShapeX(new float[4]);
         bullet.setShapeY(new float[4]);
-        
         return bullet;
     }
     

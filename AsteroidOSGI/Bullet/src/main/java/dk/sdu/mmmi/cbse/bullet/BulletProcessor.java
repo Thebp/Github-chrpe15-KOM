@@ -46,6 +46,7 @@ public class BulletProcessor implements IEntityProcessingService {
         bullet.setDx(dx);
         bullet.setDy(dy);
         bullet.setPosition(x + dx * dt, y + dy * dt);
+        bullet.setExpiration(bullet.getExpiration() - dt);
     }
 
     private void setShape(Entity bullet) {
