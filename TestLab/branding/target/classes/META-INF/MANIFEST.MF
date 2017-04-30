@@ -3,8 +3,8 @@ OpenIDE-Module-Localizing-Bundle: dk/sdu/mmmi/cbse/asteroidsnetbeans1/
  branding/Bundle.properties
 AutoUpdate-Essential-Module: true
 OpenIDE-Module-Specification-Version: 1.0.0
-OpenIDE-Module-Implementation-Version: 1.0.0-20170424
-OpenIDE-Module-Build-Version: 201704241316
+OpenIDE-Module-Implementation-Version: 1.0.0-20170430
+OpenIDE-Module-Build-Version: 201704301948
 OpenIDE-Module: dk.sdu.mmmi.cbse.AsteroidsNetbeans1.branding
 OpenIDE-Module-Public-Packages: -
 OpenIDE-Module-Requires: org.openide.modules.ModuleFormat1

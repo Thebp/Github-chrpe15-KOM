@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<module codename="dk.sdu.mmmi.cbse.Bullet">
-    <module_version install_time="1493039865523" last="true" origin="Sample Update Center" specification_version="1.0.0">
-        <file crc="1703511565" name="config/Modules/dk-sdu-mmmi-cbse-Bullet.xml"/>
-        <file crc="3309215436" name="modules/dk-sdu-mmmi-cbse-Bullet.jar"/>
-    </module_version>
-</module>

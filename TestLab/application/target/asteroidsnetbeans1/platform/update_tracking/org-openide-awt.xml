@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><module codename="org.openide.awt">
-    <module_version install_time="1493039825300" last="true" origin="installer" specification_version="7.65.1">
+    <module_version install_time="1493581712414" last="true" origin="installer" specification_version="7.65.1">
         <file crc="3208246121" name="config/Modules/org-openide-awt.xml"/>
         <file crc="2026407688" name="modules/locale/org-openide-awt_ja.jar"/>
         <file crc="2811802848" name="modules/locale/org-openide-awt_pt_BR.jar"/>
