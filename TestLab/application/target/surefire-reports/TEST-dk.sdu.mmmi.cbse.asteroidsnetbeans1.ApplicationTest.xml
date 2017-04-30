@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="1" failures="0" name="dk.sdu.mmmi.cbse.asteroidsnetbeans1.ApplicationTest" time="10.027" errors="1" skipped="0">
+<testsuite tests="1" failures="1" name="dk.sdu.mmmi.cbse.asteroidsnetbeans1.ApplicationTest" time="10" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="netbeans.run.params.debug" value="-J-Dnetbeans.patches.dk.sdu.mmmi.cbse.SilentUpdate=../../../SilentUpdate/target/classes -J-Dnetbeans.patches.dk.sdu.mmmi.cbse.Common=../../../Common/target/classes"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_72\jre\bin"/>
     <property name="java.vm.version" value="25.72-b15"/>
     <property name="java.vm.vendor" value="Oracle Corporation"/>
@@ -14,8 +15,9 @@
     <property name="user.country" value="DK"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.os.patch.level" value=""/>
+    <property name="test" value="dk.sdu.mmmi.cbse.asteroidsnetbeans1.ApplicationTest"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="user.dir" value="C:\Users\Christian\Documents\GitHub\Github-chrpe15-KOM\TestLab"/>
+    <property name="user.dir" value="C:\Users\Christian\Documents\GitHub\Github-chrpe15-KOM\TestLab\application"/>
     <property name="java.runtime.version" value="1.8.0_72-b15"/>
     <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
     <property name="java.endorsed.dirs" value="C:\Program Files\Java\jdk1.8.0_72\jre\lib\endorsed"/>
@@ -26,7 +28,7 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="user.variant" value=""/>
     <property name="os.name" value="Windows 10"/>
-    <property name="maven.ext.class.path" value="C:\Program Files\NetBeans 8.2\java\maven-nblib\netbeans-eventspy.jar"/>
+    <property name="maven.ext.class.path" value="C:\Program Files\NetBeans 8.2\java\maven-nblib\netbeans-eventspy.jar;C:\Program Files\NetBeans 8.2\java\maven-nblib\netbeans-cos.jar"/>
     <property name="classworlds.conf" value="C:\Program Files\NetBeans 8.2\java\maven\bin\m2.conf"/>
     <property name="sun.jnu.encoding" value="Cp1252"/>
     <property name="java.library.path" value="C:\Program Files\Java\jdk1.8.0_72\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\ProgramData\Oracle\Java\javapath;c:\Program Files (x86)\Intel\iCLS Client\;c:\Program Files\Intel\iCLS Client\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Windows Live\Shared;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Users\Christian\Documents\Maven\apache-maven-3.3.9\bin;C:\Users\Christian\Documents\Maven\apache-maven-3.3.9\bin;C:\Program Files (x86)\VisualSVN\bin;C:\Program Files\TortoiseSVN\bin;C:\Users\Christian\AppData\Local\Microsoft\WindowsApps;;."/>
@@ -38,13 +40,13 @@
     <property name="user.timezone" value="Europe/Paris"/>
     <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob"/>
     <property name="java.specification.version" value="1.8"/>
-    <property name="file.encoding" value="Cp1252"/>
+    <property name="file.encoding" value="UTF-8"/>
     <property name="user.name" value="Christian"/>
     <property name="java.class.path" value="C:\Program Files\NetBeans 8.2\java\maven\boot\plexus-classworlds-2.4.jar"/>
     <property name="java.vm.specification.version" value="1.8"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="java.home" value="C:\Program Files\Java\jdk1.8.0_72\jre"/>
-    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -Dmaven.ext.class.path=C:\Program Files\NetBeans 8.2\java\maven-nblib\netbeans-eventspy.jar clean install"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -Dtest=dk.sdu.mmmi.cbse.asteroidsnetbeans1.ApplicationTest -Dmaven.ext.class.path=C:\Program Files\NetBeans 8.2\java\maven-nblib\netbeans-eventspy.jar;C:\Program Files\NetBeans 8.2\java\maven-nblib\netbeans-cos.jar -Dnetbeans.run.params.debug=-J-Dnetbeans.patches.dk.sdu.mmmi.cbse.SilentUpdate=../../../SilentUpdate/target/classes -J-Dnetbeans.patches.dk.sdu.mmmi.cbse.Common=../../../Common/target/classes -Dfile.encoding=UTF-8 surefire:test"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
     <property name="user.language" value="da"/>
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
@@ -61,17 +63,14 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="dk.sdu.mmmi.cbse.asteroidsnetbeans1.ApplicationTest" name="testApplication" time="10.027">
-    <error message="C:\Users\Christian\Documents\Github\Github-chrpe15-KOM\UpdateCenter\netbeans_site\updates.xml: Processen kan ikke få adgang til filen, da den bruges af en anden proces.
-" type="java.nio.file.FileSystemException">java.nio.file.FileSystemException: C:\Users\Christian\Documents\Github\Github-chrpe15-KOM\UpdateCenter\netbeans_site\updates.xml: Processen kan ikke få adgang til filen, da den bruges af en anden proces.
-
-	at sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:86)
-	at sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:97)
-	at sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:102)
-	at sun.nio.fs.WindowsFileCopy.copy(WindowsFileCopy.java:165)
-	at sun.nio.fs.WindowsFileSystemProvider.copy(WindowsFileSystemProvider.java:278)
-	at java.nio.file.Files.copy(Files.java:1274)
-	at dk.sdu.mmmi.cbse.asteroidsnetbeans1.ApplicationTest.testApplication(ApplicationTest.java:43)
+  <testcase classname="dk.sdu.mmmi.cbse.asteroidsnetbeans1.ApplicationTest" name="testApplication" time="10">
+    <failure message="No plugins expected:&lt;0&gt; but was:&lt;2&gt;" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: No plugins expected:&lt;0&gt; but was:&lt;2&gt;
+	at junit.framework.Assert.fail(Assert.java:57)
+	at junit.framework.Assert.failNotEquals(Assert.java:329)
+	at junit.framework.Assert.assertEquals(Assert.java:78)
+	at junit.framework.Assert.assertEquals(Assert.java:234)
+	at junit.framework.TestCase.assertEquals(TestCase.java:401)
+	at dk.sdu.mmmi.cbse.asteroidsnetbeans1.ApplicationTest.testApplication(ApplicationTest.java:40)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -109,17 +108,17 @@
 	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:113)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
-</error>
+</failure>
     <system-err>System class loader patches: C:\Users\Christian\Documents\GitHub\Github-chrpe15-KOM\TestLab\application\target\test-classes
 -------------------------------------------------------------------------------
-&gt;Log Session: Sunday, April 30, 2017 9:48:34 PM CEST
+&gt;Log Session: Sunday, April 30, 2017 9:55:15 PM CEST
 &gt;System Info: 
-  Product Version         = NetBeans Platform 8.1 (Build 201510222201)
+  Product Version         = AsteroidsNetbeans1 201510222201
   Operating System        = Windows 10 version 10.0 running on amd64
   Java; VM; Vendor        = 1.8.0_72; Java HotSpot(TM) 64-Bit Server VM 25.72-b15; Oracle Corporation
   Runtime                 = Java(TM) SE Runtime Environment 1.8.0_72-b15
   Java Home               = C:\Program Files\Java\jdk1.8.0_72\jre
-  System Locale; Encoding = da_DK (asteroidsnetbeans1); Cp1252
+  System Locale; Encoding = da_DK (asteroidsnetbeans1); UTF-8
   Home Directory          = C:\Users\Christian
   Current Directory       = C:\Users\Christian\Documents\GitHub\Github-chrpe15-KOM\TestLab\application
   User Directory          = C:\Users\Christian\AppData\Local\Temp\tests-Christian\userdir0
@@ -128,7 +127,7 @@
                             C:\Users\Christian\Documents\GitHub\Github-chrpe15-KOM\TestLab\application\target\asteroidsnetbeans1\platform
   Boot &amp; Ext. Classpath   = C:\Program Files\Java\jdk1.8.0_72\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_72\jre\lib\rt.jar;C:\Program Files\Java\jdk1.8.0_72\jre\lib\sunrsasign.jar;C:\Program Files\Java\jdk1.8.0_72\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_72\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_72\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_72\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_72\jre\classes;C:\Program Files\Java\jdk1.8.0_72\jre\lib\ext\access-bridge-64.jar;C:\Program Files\Java\jdk1.8.0_72\jre\lib\ext\cldrdata.jar;C:\Program Files\Java\jdk1.8.0_72\jre\lib\ext\dnsns.jar;C:\Program Files\Java\jdk1.8.0_72\jre\lib\ext\jaccess.jar;C:\Program Files\Java\jdk1.8.0_72\jre\lib\ext\jfxrt.jar;C:\Program Files\Java\jdk1.8.0_72\jre\lib\ext\localedata.jar;C:\Program Files\Java\jdk1.8.0_72\jre\lib\ext\nashorn.jar;C:\Program Files\Java\jdk1.8.0_72\jre\lib\ext\sunec.jar;C:\Program Files\Java\jdk1.8.0_72\jre\lib\ext\sunjce_provider.jar;C:\Program Files\Java\jdk1.8.0_72\jre\lib\ext\sunmscapi.jar;C:\Program Files\Java\jdk1.8.0_72\jre\lib\ext\sunpkcs11.jar;C:\Program Files\Java\jdk1.8.0_72\jre\lib\ext\zipfs.jar
   Application Classpath   = loaded by URLClassLoader file:/C:/Users/Christian/Documents/GitHub/Github-chrpe15-KOM/TestLab/application/target/asteroidsnetbeans1/platform/lib/boot.jar file:/C:/Users/Christian/Documents/GitHub/Github-chrpe15-KOM/TestLab/application/target/asteroidsnetbeans1/platform/lib/org-openide-modules.jar file:/C:/Users/Christian/Documents/GitHub/Github-chrpe15-KOM/TestLab/application/target/asteroidsnetbeans1/platform/lib/org-openide-util-lookup.jar file:/C:/Users/Christian/Documents/GitHub/Github-chrpe15-KOM/TestLab/application/target/asteroidsnetbeans1/platform/lib/org-openide-util-ui.jar file:/C:/Users/Christian/Documents/GitHub/Github-chrpe15-KOM/TestLab/application/target/asteroidsnetbeans1/platform/lib/org-openide-util.jar file:/C:/Program%20Files/Java/jdk1.8.0_72/lib/ant-javafx.jar file:/C:/Program%20Files/Java/jdk1.8.0_72/lib/dt.jar file:/C:/Program%20Files/Java/jdk1.8.0_72/lib/javafx-mx.jar file:/C:/Program%20Files/Java/jdk1.8.0_72/lib/jconsole.jar file:/C:/Program%20Files/Java/jdk1.8.0_72/lib/packager.jar file:/C:/Program%20Files/Java/jdk1.8.0_72/lib/sa-jdi.jar file:/C:/Program%20Files/Java/jdk1.8.0_72/lib/tools.jar
-  Startup Classpath       = C:\Users\Christian\Documents\GitHub\Github-chrpe15-KOM\TestLab\application\target\asteroidsnetbeans1\platform\core\asm-all-5.0.1.jar;C:\Users\Christian\Documents\GitHub\Github-chrpe15-KOM\TestLab\application\target\asteroidsnetbeans1\platform\core\core-base.jar;C:\Users\Christian\Documents\GitHub\Github-chrpe15-KOM\TestLab\application\target\asteroidsnetbeans1\platform\core\core.jar;C:\Users\Christian\Documents\GitHub\Github-chrpe15-KOM\TestLab\application\target\asteroidsnetbeans1\platform\core\org-netbeans-libs-asm.jar;C:\Users\Christian\Documents\GitHub\Github-chrpe15-KOM\TestLab\application\target\asteroidsnetbeans1\platform\core\org-openide-filesystems.jar;C:\Users\Christian\Documents\GitHub\Github-chrpe15-KOM\TestLab\application\target\asteroidsnetbeans1\platform\core\locale\core-base_ja.jar;C:\Users\Christian\Documents\GitHub\Github-chrpe15-KOM\TestLab\application\target\asteroidsnetbeans1\platform\core\locale\core-base_pt_BR.jar;C:\Users\Christian\Documents\GitHub\Github-chrpe15-KOM\TestLab\application\target\asteroidsnetbeans1\platform\core\locale\core-base_ru.jar;C:\Users\Christian\Documents\GitHub\Github-chrpe15-KOM\TestLab\application\target\asteroidsnetbeans1\platform\core\locale\core-base_zh_CN.jar;C:\Users\Christian\Documents\GitHub\Github-chrpe15-KOM\TestLab\application\target\asteroidsnetbeans1\platform\core\locale\core_ja.jar;C:\Users\Christian\Documents\GitHub\Github-chrpe15-KOM\TestLab\application\target\asteroidsnetbeans1\platform\core\locale\core_pt_BR.jar;C:\Users\Christian\Documents\GitHub\Github-chrpe15-KOM\TestLab\application\target\asteroidsnetbeans1\platform\core\locale\core_ru.jar;C:\Users\Christian\Documents\GitHub\Github-chrpe15-KOM\TestLab\application\target\asteroidsnetbeans1\platform\core\locale\core_zh_CN.jar;C:\Users\Christian\Documents\GitHub\Github-chrpe15-KOM\TestLab\application\target\asteroidsnetbeans1\platform\core\locale\org-netbeans-libs-asm_ja.jar;C:\Users\Christian\Documents\GitHub\Github-chrpe15-KOM\TestLab\application\target\asteroidsnetbeans1\platform\core\locale\org-netbeans-libs-asm_pt_BR.jar;C:\Users\Christian\Documents\GitHub\Github-chrpe15-KOM\TestLab\application\target\asteroidsnetbeans1\platform\core\locale\org-netbeans-libs-asm_ru.jar;C:\Users\Christian\Documents\GitHub\Github-chrpe15-KOM\TestLab\application\target\asteroidsnetbeans1\platform\core\locale\org-netbeans-libs-asm_zh_CN.jar;C:\Users\Christian\Documents\GitHub\Github-chrpe15-KOM\TestLab\application\target\asteroidsnetbeans1\platform\core\locale\org-openide-filesystems_ja.jar;C:\Users\Christian\Documents\GitHub\Github-chrpe15-KOM\TestLab\application\target\asteroidsnetbeans1\platform\core\locale\org-openide-filesystems_pt_BR.jar;C:\Users\Christian\Documents\GitHub\Github-chrpe15-KOM\TestLab\application\target\asteroidsnetbeans1\platform\core\locale\org-openide-filesystems_ru.jar;C:\Users\Christian\Documents\GitHub\Github-chrpe15-KOM\TestLab\application\target\asteroidsnetbeans1\platform\core\locale\org-openide-filesystems_zh_CN.jar
+  Startup Classpath       = C:\Users\Christian\Documents\GitHub\Github-chrpe15-KOM\TestLab\application\target\asteroidsnetbeans1\platform\core\asm-all-5.0.1.jar;C:\Users\Christian\Documents\GitHub\Github-chrpe15-KOM\TestLab\application\target\asteroidsnetbeans1\platform\core\core-base.jar;C:\Users\Christian\Documents\GitHub\Github-chrpe15-KOM\TestLab\application\target\asteroidsnetbeans1\platform\core\core.jar;C:\Users\Christian\Documents\GitHub\Github-chrpe15-KOM\TestLab\application\target\asteroidsnetbeans1\platform\core\org-netbeans-libs-asm.jar;C:\Users\Christian\Documents\GitHub\Github-chrpe15-KOM\TestLab\application\target\asteroidsnetbeans1\platform\core\org-openide-filesystems.jar;C:\Users\Christian\Documents\GitHub\Github-chrpe15-KOM\TestLab\application\target\asteroidsnetbeans1\platform\core\locale\core-base_ja.jar;C:\Users\Christian\Documents\GitHub\Github-chrpe15-KOM\TestLab\application\target\asteroidsnetbeans1\platform\core\locale\core-base_pt_BR.jar;C:\Users\Christian\Documents\GitHub\Github-chrpe15-KOM\TestLab\application\target\asteroidsnetbeans1\platform\core\locale\core-base_ru.jar;C:\Users\Christian\Documents\GitHub\Github-chrpe15-KOM\TestLab\application\target\asteroidsnetbeans1\platform\core\locale\core-base_zh_CN.jar;C:\Users\Christian\Documents\GitHub\Github-chrpe15-KOM\TestLab\application\target\asteroidsnetbeans1\platform\core\locale\core_ja.jar;C:\Users\Christian\Documents\GitHub\Github-chrpe15-KOM\TestLab\application\target\asteroidsnetbeans1\platform\core\locale\core_pt_BR.jar;C:\Users\Christian\Documents\GitHub\Github-chrpe15-KOM\TestLab\application\target\asteroidsnetbeans1\platform\core\locale\core_ru.jar;C:\Users\Christian\Documents\GitHub\Github-chrpe15-KOM\TestLab\application\target\asteroidsnetbeans1\platform\core\locale\core_zh_CN.jar;C:\Users\Christian\Documents\GitHub\Github-chrpe15-KOM\TestLab\application\target\asteroidsnetbeans1\platform\core\locale\org-netbeans-libs-asm_ja.jar;C:\Users\Christian\Documents\GitHub\Github-chrpe15-KOM\TestLab\application\target\asteroidsnetbeans1\platform\core\locale\org-netbeans-libs-asm_pt_BR.jar;C:\Users\Christian\Documents\GitHub\Github-chrpe15-KOM\TestLab\application\target\asteroidsnetbeans1\platform\core\locale\org-netbeans-libs-asm_ru.jar;C:\Users\Christian\Documents\GitHub\Github-chrpe15-KOM\TestLab\application\target\asteroidsnetbeans1\platform\core\locale\org-netbeans-libs-asm_zh_CN.jar;C:\Users\Christian\Documents\GitHub\Github-chrpe15-KOM\TestLab\application\target\asteroidsnetbeans1\platform\core\locale\org-openide-filesystems_ja.jar;C:\Users\Christian\Documents\GitHub\Github-chrpe15-KOM\TestLab\application\target\asteroidsnetbeans1\platform\core\locale\org-openide-filesystems_pt_BR.jar;C:\Users\Christian\Documents\GitHub\Github-chrpe15-KOM\TestLab\application\target\asteroidsnetbeans1\platform\core\locale\org-openide-filesystems_ru.jar;C:\Users\Christian\Documents\GitHub\Github-chrpe15-KOM\TestLab\application\target\asteroidsnetbeans1\platform\core\locale\org-openide-filesystems_zh_CN.jar;C:\Users\Christian\Documents\GitHub\Github-chrpe15-KOM\TestLab\application\target\asteroidsnetbeans1\asteroidsnetbeans1\core\locale\core_asteroidsnetbeans1.jar
 -------------------------------------------------------------------------------
 INFO [org.netbeans.core.startup.NbEvents]: Turning on modules:
 	org.openide.util.lookup [8.32.1 201510222201]
@@ -150,30 +149,9 @@ INFO [org.netbeans.core.startup.NbEvents]: Turning on modules:
 	org.netbeans.modules.autoupdate.services [1.51.1 201510222201]
 	dk.sdu.mmmi.cbse.SilentUpdate [1.0.0 1.0.0-20170430 201704301948]
 	dk.sdu.mmmi.cbse.Common [1.0.0 1.0.0-20170430 201704301948]
-INFO [org.netbeans.modules.autoupdate.silentupdate]: Update found: AsteroidsNetbeans1-branding[dk.sdu.mmmi.cbse.AsteroidsNetbeans1.branding/1.0.0]
-INFO [org.netbeans.updater]: 780: Unpacking dk-sdu-mmmi-cbse-AsteroidsNetbeans1-branding.nbm
-INFO [org.netbeans.updater]: File installed C:\Users\Christian\Documents\GitHub\Github-chrpe15-KOM\TestLab\application\target\asteroidsnetbeans1\asteroidsnetbeans1\config\Modules\dk-sdu-mmmi-cbse-AsteroidsNetbeans1-branding.xml@0
-INFO [org.netbeans.updater]: Copied file netbeans/config/Modules/dk-sdu-mmmi-cbse-AsteroidsNetbeans1-branding.xml to C:\Users\Christian\Documents\GitHub\Github-chrpe15-KOM\TestLab\application\target\asteroidsnetbeans1\asteroidsnetbeans1\config\Modules\dk-sdu-mmmi-cbse-AsteroidsNetbeans1-branding.xml
-INFO [org.netbeans.updater]: File installed C:\Users\Christian\Documents\GitHub\Github-chrpe15-KOM\TestLab\application\target\asteroidsnetbeans1\asteroidsnetbeans1\core\locale\core_asteroidsnetbeans1.jar@0
-INFO [org.netbeans.updater]: Copied file netbeans/core/locale/core_asteroidsnetbeans1.jar to C:\Users\Christian\Documents\GitHub\Github-chrpe15-KOM\TestLab\application\target\asteroidsnetbeans1\asteroidsnetbeans1\core\locale\core_asteroidsnetbeans1.jar
-INFO [org.netbeans.updater]: File installed C:\Users\Christian\Documents\GitHub\Github-chrpe15-KOM\TestLab\application\target\asteroidsnetbeans1\asteroidsnetbeans1\modules\dk-sdu-mmmi-cbse-AsteroidsNetbeans1-branding.jar@0
-INFO [org.netbeans.updater]: Copied file netbeans/modules/dk-sdu-mmmi-cbse-AsteroidsNetbeans1-branding.jar to C:\Users\Christian\Documents\GitHub\Github-chrpe15-KOM\TestLab\application\target\asteroidsnetbeans1\asteroidsnetbeans1\modules\dk-sdu-mmmi-cbse-AsteroidsNetbeans1-branding.jar
-INFO [org.netbeans.updater]: File installed C:\Users\Christian\Documents\GitHub\Github-chrpe15-KOM\TestLab\application\target\asteroidsnetbeans1\asteroidsnetbeans1\modules\locale\org-netbeans-core-windows_asteroidsnetbeans1.jar@0
-INFO [org.netbeans.updater]: Copied file netbeans/modules/locale/org-netbeans-core-windows_asteroidsnetbeans1.jar to C:\Users\Christian\Documents\GitHub\Github-chrpe15-KOM\TestLab\application\target\asteroidsnetbeans1\asteroidsnetbeans1\modules\locale\org-netbeans-core-windows_asteroidsnetbeans1.jar
-INFO [org.netbeans.updater]: File installed C:\Users\Christian\Documents\GitHub\Github-chrpe15-KOM\TestLab\application\target\asteroidsnetbeans1\asteroidsnetbeans1\modules\locale\org-netbeans-core_asteroidsnetbeans1.jar@0
-INFO [org.netbeans.updater]: Copied file netbeans/modules/locale/org-netbeans-core_asteroidsnetbeans1.jar to C:\Users\Christian\Documents\GitHub\Github-chrpe15-KOM\TestLab\application\target\asteroidsnetbeans1\asteroidsnetbeans1\modules\locale\org-netbeans-core_asteroidsnetbeans1.jar
-INFO [org.netbeans.updater]: File C:\Users\Christian\Documents\GitHub\Github-chrpe15-KOM\TestLab\application\target\asteroidsnetbeans1\asteroidsnetbeans1\update\download\dk-sdu-mmmi-cbse-AsteroidsNetbeans1-branding.nbm deleted.
-INFO [org.netbeans.updater]: Use XML Transformer: com.sun.org.apache.xalan.internal.xsltc.trax.TransformerImpl@57e3c728
-INFO [org.netbeans.updater]: File C:\Users\Christian\Documents\GitHub\Github-chrpe15-KOM\TestLab\application\target\asteroidsnetbeans1\asteroidsnetbeans1\update_tracking\dk-sdu-mmmi-cbse-AsteroidsNetbeans1-branding.xml modified.
-INFO [org.netbeans.updater]: File installed C:\Users\Christian\Documents\GitHub\Github-chrpe15-KOM\TestLab\application\target\asteroidsnetbeans1\asteroidsnetbeans1\update_tracking\dk-sdu-mmmi-cbse-AsteroidsNetbeans1-branding.xml@0
-INFO [org.netbeans.updater]: File C:\Users\Christian\Documents\GitHub\Github-chrpe15-KOM\TestLab\application\target\asteroidsnetbeans1\asteroidsnetbeans1\update\download\additional_information.xml deleted.
-Turning on modules...
-Loading module services...
-Loading modules...
-Turning on modules...done.
-INFO [org.netbeans.core.startup.NbEvents]: Turning on modules:
+	dk.sdu.mmmi.cbse.Player [1.0.0 1.0.0-20170320 201703201525]
 	dk.sdu.mmmi.cbse.AsteroidsNetbeans1.branding [1.0.0 1.0.0-20170320 201703201525]
-INFO [org.netbeans.modules.autoupdate.silentupdate]: Install new modules done.
+INFO [org.netbeans.modules.autoupdate.silentupdate]: None for update/install/uninstall
 </system-err>
   </testcase>
 </testsuite>

@@ -89,9 +89,9 @@
     <manifest AutoUpdate-Show-In-Client="false" OpenIDE-Module="org.openide.util.ui" OpenIDE-Module-Display-Category="Infrastructure" OpenIDE-Module-Implementation-Version="201510222201" OpenIDE-Module-Java-Dependencies="Java &gt; 1.7" OpenIDE-Module-Long-Description="Various helper methods and basic concept definitions related to thick client desktop environment including actions and image handling." OpenIDE-Module-Module-Dependencies="org.openide.util &gt; 9.3, org.openide.util.lookup &gt; 8.14" OpenIDE-Module-Name="Utilities API" OpenIDE-Module-Short-Description="Desktop Utilities API." OpenIDE-Module-Specification-Version="9.4.1"/>
     
 </module>
-<module codenamebase="dk.sdu.mmmi.cbse.SilentUpdate" distribution="SilentUpdate-1.0.0-SNAPSHOT.nbm" downloadsize="0" license="AF77BD25" needsrestart="false" releasedate="2017/04/24" targetcluster="asteroidsnetbeans1">
+<!--<module codenamebase="dk.sdu.mmmi.cbse.SilentUpdate" distribution="SilentUpdate-1.0.0-SNAPSHOT.nbm" downloadsize="0" license="AF77BD25" needsrestart="false" releasedate="2017/04/24" targetcluster="asteroidsnetbeans1">
     <manifest OpenIDE-Module="dk.sdu.mmmi.cbse.SilentUpdate" OpenIDE-Module-Display-Category="Infrastructure" OpenIDE-Module-Implementation-Version="1.0.0-20170424" OpenIDE-Module-Long-Description="A service installing updates of your NetBeansv Platform Application with as few as possible user's interactions." OpenIDE-Module-Module-Dependencies="org.netbeans.api.annotations.common/1 &gt; 1.26.1, org.openide.modules &gt; 7.47.1, org.netbeans.modules.autoupdate.services &gt; 1.51.1, org.openide.io &gt; 1.48.1, org.openide.util &gt; 9.5.1" OpenIDE-Module-Name="Silent Update" OpenIDE-Module-Requires="org.openide.modules.ModuleFormat1" OpenIDE-Module-Short-Description="Silent Update of Application" OpenIDE-Module-Specification-Version="1.0.0"/>
-</module>
+</module>-->
 
 <license name="AF77BD25">Copyright  2017
 -----------------------------------------------------
