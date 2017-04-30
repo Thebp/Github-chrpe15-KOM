@@ -106,3 +106,5 @@ Temporary Items
 /AsteroidSpring/OSGIAsteroid/target/
 *.jar
 *.class
+/AsteroidSpring/Spring/target/
+/AsteroidSpring/SpringPlayer/target/
