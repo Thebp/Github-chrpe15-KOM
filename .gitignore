@@ -93,5 +93,16 @@ Temporary Items
 /AsteroidOSGI/CommonAsteroid/target/
 /AsteroidOSGI/OSGIExtender/target/
 /AsteroidOSGI/OSGIAsteroid/target/
+/AsteroidSpring/branding/target/
+/AsteroidSpring/Common/target/
+/AsteroidSpring/Core/target/
+/AsteroidSpring/Enemy/target/
+/AsteroidSpring/Bullet/target/
+/AsteroidSpring/Asteroid/target/
+/AsteroidSpring/application/target/
+/AsteroidSpring/CommonBullet/target/
+/AsteroidSpring/CommonAsteroid/target/
+/AsteroidSpring/OSGIExtender/target/
+/AsteroidSpring/OSGIAsteroid/target/
 *.jar
 *.class
