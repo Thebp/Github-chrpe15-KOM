@@ -3,26 +3,33 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package dk.sdu.mmmi.cbse.enemy;
+package dk.sdu.mmmi.cbse.springenemy;
 
 import dk.sdu.mmmi.cbse.common.data.Entity;
 import dk.sdu.mmmi.cbse.common.data.GameData;
-import dk.sdu.mmmi.cbse.common.data.GameKeys;
 import dk.sdu.mmmi.cbse.common.data.World;
-import dk.sdu.mmmi.cbse.common.events.Event;
 import dk.sdu.mmmi.cbse.common.services.IEntityProcessingService;
 import dk.sdu.mmmi.cbse.common.services.IGamePluginService;
 import dk.sdu.mmmi.cbse.commonbullet.BulletSPI;
 import java.util.Random;
 import org.openide.util.Lookup;
-import org.openide.util.lookup.ServiceProvider;
 
 /**
  *
  * @author Christian
  */
-@ServiceProvider(service = IEntityProcessingService.class)
-public class EnemyControlSystem implements IEntityProcessingService{
+public class SpringEnemy implements IGamePluginService, IEntityProcessingService{
+    private Entity enemys;
+    @Override
+    public void start(GameData gameData, World world) {
+        enemys = createEnemyShip(gameData);
+        world.addEntity(enemys);
+    }
+
+    @Override
+    public void stop(GameData gameData, World world) {
+        world.removeEntity(enemys);
+    }
 
     @Override
     public void process(GameData gameData, World world) {
@@ -105,7 +112,20 @@ public class EnemyControlSystem implements IEntityProcessingService{
             enemy.setShapeY(shapeY);
         }
     }
-
-    
+    private Entity createEnemyShip(GameData gameData){
+        Enemy enemyShip = new Enemy();
+                
+        enemyShip.setPosition(gameData.getDisplayWidth()/4, gameData.getDisplayHeight()/4);
+        
+        enemyShip.setMaxSpeed(200);
+        enemyShip.setAcceleration(100);
+        enemyShip.setDeacceleration(10);
+        enemyShip.setRadius(8);
+        
+        enemyShip.setRadians(3.1415f /1);
+        enemyShip.setRotationSpeed(3);
+        
+        return enemyShip;
+    }
     
 }

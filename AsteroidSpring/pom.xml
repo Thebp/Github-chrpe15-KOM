@@ -61,13 +61,13 @@
         <module>application</module>
         <module>Common</module>
         <module>Core</module>
-        <module>Enemy</module>
         <module>Bullet</module>
         <module>Asteroid</module>
         <module>CommonAsteroid</module>
         <module>CommonBullet</module>
         <module>Spring</module>
         <module>SpringPlayer</module>
+        <module>SpringEnemy</module>
     </modules>
 
     <properties>
