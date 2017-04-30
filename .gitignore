@@ -93,3 +93,4 @@ Temporary Items
 /AsteroidOSGI/CommonAsteroid/target/
 /AsteroidOSGI/OSGIExtender/target/
 /AsteroidOSGI/OSGIAsteroid/target/
+*.jar
