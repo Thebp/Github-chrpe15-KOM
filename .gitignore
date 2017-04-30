@@ -104,6 +104,14 @@ Temporary Items
 /AsteroidSpring/CommonAsteroid/target/
 /AsteroidSpring/OSGIExtender/target/
 /AsteroidSpring/OSGIAsteroid/target/
+/TestLab/Common/target/
+/TestLab/Player/target/
+/TestLab/Core/target/
+/TestLab/Enemy/target/
+/TestLab/Bullet/target/
+/TestLab/Asteroid/target/
+/TestLab/CollisionDetection/target/
+/TestLab/SilentUpdate/target/
 *.jar
 *.class
 /AsteroidSpring/Spring/target/
