@@ -8,7 +8,6 @@ import dk.sdu.mmmi.cbse.common.data.World;
 import dk.sdu.mmmi.cbse.common.events.Event;
 import static dk.sdu.mmmi.cbse.common.events.EventType.PLAYER_SHOOT;
 import dk.sdu.mmmi.cbse.common.services.IEntityProcessingService;
-import dk.sdu.mmmi.cbse.common.services.IGamePluginService;
 import org.openide.util.lookup.ServiceProvider;
 import org.openide.util.lookup.ServiceProviders;
 /**
@@ -18,7 +17,7 @@ import org.openide.util.lookup.ServiceProviders;
 @ServiceProviders(value ={
     @ServiceProvider(service = IEntityProcessingService.class)
 })
-public class PlayerControlSystem implements IEntityProcessingService, IGamePluginService {
+public class PlayerControlSystem implements IEntityProcessingService{
 
     @Override
     public void process(GameData gameData, World world) {
@@ -100,14 +99,6 @@ public class PlayerControlSystem implements IEntityProcessingService, IGamePlugi
         }
     }
 
-    @Override
-    public void start(GameData gameData, World world) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void stop(GameData gameData, World world) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
 
 }
