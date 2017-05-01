@@ -66,8 +66,6 @@
         <module>CommonAsteroid</module>
         <module>CommonBullet</module>
         <module>Spring</module>
-        <module>SpringPlayer</module>
-        <module>SpringEnemy</module>
     </modules>
 
     <properties>

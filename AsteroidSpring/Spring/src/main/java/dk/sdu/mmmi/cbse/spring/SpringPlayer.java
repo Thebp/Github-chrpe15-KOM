@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package dk.sdu.mmmi.cbse.springplayer;
+package dk.sdu.mmmi.cbse.spring;
 
 import dk.sdu.mmmi.cbse.common.data.Entity;
 import dk.sdu.mmmi.cbse.common.data.GameData;
@@ -12,7 +12,9 @@ import dk.sdu.mmmi.cbse.common.data.World;
 import dk.sdu.mmmi.cbse.common.services.IEntityProcessingService;
 import dk.sdu.mmmi.cbse.common.services.IGamePluginService;
 import dk.sdu.mmmi.cbse.commonbullet.BulletSPI;
-import org.openide.util.Lookup;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+//import dk.sdu.mmmi.cbse.commonbullet.BulletSPI;
 
 /**
  *
@@ -21,6 +23,12 @@ import org.openide.util.Lookup;
 public class SpringPlayer implements IGamePluginService, IEntityProcessingService {
 
     private Entity players;
+    ApplicationContext ctx = new AnnotationConfigApplicationContext(BulletConfig.class);
+    private BulletSPI bullets;
+    
+    public SpringPlayer(){
+        bullets = ctx.getBean(BulletSPI.class);
+    }
 
     @Override
     public void start(GameData gameData, World world) {
@@ -58,11 +66,10 @@ public class SpringPlayer implements IGamePluginService, IEntityProcessingServic
                 radians -= rotationSpeed * dt;
             }
 
-            BulletSPI bulletSPI = Lookup.getDefault().lookup(BulletSPI.class);
+            //BulletSPI bulletSPI = Lookup.getDefault().lookup(BulletSPI.class);
             //shooting
-            if (gameData.getKeys().isPressed(GameKeys.SPACE) && bulletSPI != null) {
-                Entity bullet = bulletSPI.createBullet(player);
-                world.addEntity(bullet);
+            if (gameData.getKeys().isPressed(GameKeys.SPACE) && bullets != null) {
+                world.addEntity( bullets.createBullet(player));
             }
 
             if (player.getIsHit() == true) {

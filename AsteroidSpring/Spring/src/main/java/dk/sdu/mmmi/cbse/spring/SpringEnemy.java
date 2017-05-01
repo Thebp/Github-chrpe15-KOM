@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package dk.sdu.mmmi.cbse.springenemy;
+package dk.sdu.mmmi.cbse.spring;
 
 import dk.sdu.mmmi.cbse.common.data.Entity;
 import dk.sdu.mmmi.cbse.common.data.GameData;
@@ -13,6 +13,8 @@ import dk.sdu.mmmi.cbse.common.services.IGamePluginService;
 import dk.sdu.mmmi.cbse.commonbullet.BulletSPI;
 import java.util.Random;
 import org.openide.util.Lookup;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 /**
  *
@@ -20,6 +22,12 @@ import org.openide.util.Lookup;
  */
 public class SpringEnemy implements IGamePluginService, IEntityProcessingService{
     private Entity enemys;
+    ApplicationContext ctx = new AnnotationConfigApplicationContext(BulletConfig.class);
+    private BulletSPI bullets;
+    
+    public SpringEnemy(){
+        bullets = ctx.getBean(BulletSPI.class);
+    }
     @Override
     public void start(GameData gameData, World world) {
         enemys = createEnemyShip(gameData);
@@ -56,9 +64,10 @@ public class SpringEnemy implements IGamePluginService, IEntityProcessingService
                 radians -= rotationSpeed * dt;
             }
             //shooting
-            BulletSPI bulletSPI = Lookup.getDefault().lookup(BulletSPI.class);
-            if(rand2.nextInt(10000) < 20 && bulletSPI != null){
-                bulletSPI.createBullet(enemy);
+            //BulletSPI bulletSPI = Lookup.getDefault().lookup(BulletSPI.class);
+            if(rand2.nextInt(10000) < 20 && bullets != null){
+                world.addEntity( bullets.createBullet(enemy));
+                
             }
             // accelerating
             if (up = true) {
