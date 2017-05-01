@@ -2,11 +2,6 @@ package dk.sdu.mmmi.cbse.player.playersystem;
 
 import dk.sdu.mmmi.cbse.common.data.Entity;
 import dk.sdu.mmmi.cbse.common.data.EntityType;
-import dk.sdu.mmmi.cbse.common.data.GameData;
-import dk.sdu.mmmi.cbse.common.data.World;
-import dk.sdu.mmmi.cbse.common.events.Event;
-import dk.sdu.mmmi.cbse.common.events.EventType;
-import static dk.sdu.mmmi.cbse.common.events.EventType.PLAYER_SHOOT;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
